@@ -56,7 +56,7 @@ export default await fetch('./config.json')
         return {
           ...column,
           width: completeConfig.COLUMNS[column.label] || (DEFAULT_COLUMN_WIDTH_EXCEPTIONS.find((dc) => dc.id === column.id) ?.width ?? DEFAULT_COLUMN_WIDTH), // Throws: Nullish coalescing operator(??) requires parens when mixing with logical operators - w/o the parentes
-          enabled: columns.includes(column.label),
+          enabled: columns.value?.includes(column.label),
         };
       })
       .sort((a, b) => {
